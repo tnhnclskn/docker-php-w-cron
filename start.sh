@@ -1,4 +1,6 @@
 #!/bin/bash
 
-printenv | sed 's/^\(.*\)\=\(.*\)$/export \1\="\2"/g' > /root/project_env.sh
-cron && tail -f /var/log/cron.log
+cat /etc/cron.d/crontab
+/usr/bin/crontab -u root /etc/cron.d/crontab
+cron
+tail -f /var/log/cron.log

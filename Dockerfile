@@ -8,10 +8,7 @@ RUN apt-get update && apt-get install -y cron
 RUN touch /etc/cron.d/crontab
 RUN touch /var/log/cron.log
 
-# add crontab file
-RUN /usr/bin/crontab /etc/cron.d/crontab
-
-ADD start.sh /start.sh
+COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["/start.sh"]
