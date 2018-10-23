@@ -12,6 +12,4 @@ RUN touch /var/log/cron.log
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-USER 1000
-
 ENTRYPOINT ["/start.sh"]
